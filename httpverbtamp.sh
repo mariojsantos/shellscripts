@@ -24,12 +24,34 @@
 # 
 #################################################################################### 
 
+#Funcion to print the mode use help 
+function PrintUsage()
+{
+	echo "Use: `basename $0` <host> <URI> [port]"
+	exit 1
+}
 
-HOST=$1
-PORT=$2
-URI=$3
+if [ $# -lt 2 ];
+then 
+	echo -e "You did not provided enough arguments! \nExiting!"
+	PrintUsage
 
-#File with resource names to test
+elif [ $# -eq 3 ];
+then
+	HOST="$1"
+	URI="$2"
+	PORT="$3"	
+elif [ $# -eq 2 ];
+then
+	HOST="$1"
+	URI="$2"
+	PORT="80"
+else
+	echo -e "Incorrect argument number! \nExiting!"
+	PrintUsage
+fi
+
+#Name of file with resource names to test
 FILE=lista.txt
 
 while read -r line; 
@@ -47,5 +69,5 @@ do
 
 done < $FILE
 
-exit 1
+exit 0
 
