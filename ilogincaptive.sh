@@ -6,10 +6,11 @@
 # Be happy!
 
 read -p "Type your username: " USERNAME
+# In case of not using systemd, uncomment the line below and comment out the line starting with "PASS".
 #read -s -p "Type your password: " PASS
 PASS="$(systemd-ask-password "Type your password: ")"
 
-RESULT="$(curl -s -k -H "Content-Type: application/x-www-form-urlencoded" -X POST --data-urlencode "auth_user=$USERNAME" --data-urlencode "auth_pass=$PASS" -d accept=Continuar https://acesso.ifcelimoeiro:8007/index.php?zone=institucional_temp)"
+RESULT="$(curl -s -k -H "Content-Type: application/x-www-form-urlencoded" -X POST --data-urlencode "auth_user=$USERNAME" --data-urlencode "auth_pass=$PASS" -d accept=Continuar https://<CaptivePortalIPorDomain>:<Port>/index.php?zone=<ZoneName>)"
 
 YES=`echo $RESULT | grep Redirec`
 
