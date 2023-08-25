@@ -5,9 +5,9 @@
 # chmod 600 .pass
 # Be happy!
 
-URL="acesso.ifcelimoeiro"
-PORT="8007"
-ZONE="institucional_temp"
+URL="<CaptivePortal_IP_or_Domain>"
+PORT="<CaptivePortal_Port>"
+ZONE="<ZoneName>"
 
 read -p "Type your username: " USERNAME
 # In case of not using systemd, uncomment the line below and comment out the line starting with "PASS".
