@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script to logout from captive portal
-# Assign permitions just to the file owner
+# Assign permissions just to the file owner
 # chmod 700 logoutcaptive.sh
 # Be happy!
 ##################################################################################### 
