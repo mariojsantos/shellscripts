@@ -21,8 +21,12 @@
 # 
 #################################################################################### 
 
-ID=`curl -s -k https://<CaptivePortalIPorDomain>:<Port>/index.php?zone=<ZoneName> | grep logout_id | cut -d" " -f4 | cut -d= -f2 | sed 's/"//g'`  
+URL="<captiveportal_IPorDomain>"
+PORT="<captiveportal_Port>"
+ZONE="<Zone_Name>"
 
-curl -k -X POST -F 'logout_id='$ID'' -F 'zone=institucional_temp' -F 'logout=Disconnect' https://<CaptivePortalIPorDomain>:<Port>/index.php?zone=<ZoneName>
+ID=`curl -s -k https://$URL:$PORT/index.php?zone=$ZONE | grep logout_id | cut -d" " -f4 | cut -d= -f2 | sed 's/"//g'`  
+
+curl -k -X POST -F 'logout_id='$ID'' -F 'zone='$ZONE'' -F 'logout=Disconnect' https://$URL:$PORT/index.php?zone=$ZONE
 
 echo Logout Successful!
