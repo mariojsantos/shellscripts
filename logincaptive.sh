@@ -23,12 +23,16 @@
 # 
 #################################################################################### 
 
+URL="<CaptivePortal_IP_or_Domain>"
+PORT="<CaptivePortal_Port>"
+ZONE="<ZoneName>"
+
 PASS="`<.pass`"
 
 #Put your captive portal username here between the double quotes
 USERNAME="<yourusername>"
 
-RESULT="$(curl -s -k -H "Content-Type: application/x-www-form-urlencoded" -X POST --data-urlencode "auth_user=$USERNAME" --data-urlencode "auth_pass=$PASS" -d accept=Continuar https://<CaptivePortalIPorDomain>:<Port>/index.php?zone=<ZoneName>)"
+RESULT="$(curl -s -k -H "Content-Type: application/x-www-form-urlencoded" -X POST --data-urlencode "auth_user=$USERNAME" --data-urlencode "auth_pass=$PASS" -d accept=Continuar https://$URL:$PORT/index.php?zone=$ZONE)"
 
 YES=`echo $RESULT | grep Redirec`
 
