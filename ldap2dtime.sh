@@ -15,5 +15,5 @@ UNIXTIMESTAMP=$(($SECONDS - $EPOCH))
 
 DATE=$(date -d @$UNIXTIMESTAMP)
 
-echo The password has been changed for tha last time at $DATE
+echo "The password has been changed for the last time at $DATE"
 
